@@ -3,6 +3,11 @@
 ## Data Source
 This data comes from the [Public Libraries Survey (PLS) 2023](https://www.imls.gov/research-evaluation/surveys/public-libraries-survey-pls) survey data of 9,252 libraries across the United States. Specifically, we examine "PLS_FY23_AE_pud23i.csv".
 
+## Key Files
+- `raw_data` contains the raw data downloaded from the Public Libraries Survey (PLS) 2023.
+- `cleaned_data` contains the cleaned data after running `data_cleaning.R`.
+
+
 ## Data Stakeholder
 Our stakeholder is the Director of Capital Planning for at the Institute of Museum and Library Services or another large Federal body who needs to assess whether or not to provide a loan to a library based on their ability to maximize the number of annual visits per capita. This director is responsible for a multi-million dollar annual budget allocated for building new library branches and renovating existing ones. Their primary challenge is to make high-stakes investment decisions that maximize community impact. Before committing years of planning and significant public funds to a project, they need a reliable way to forecast a potential branch's success. They would commission this analysis to develop a predictive tool that can forecast public engagement, ensuring that resources are allocated to projects with the highest potential return on investment for the community.
 
