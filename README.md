@@ -15,9 +15,6 @@ Our stakeholder is the Director of Capital Planning for at the Institute of Muse
 We will be predicting the annual visits per capita served.
 
 ## Variables in Covariate
-The covariates include:
-
-## Variables in Covariate
 
 The covariates include (for more information, see: https://www.imls.gov/sites/default/files/2025-08/PLS-FY-2023-Data-Documentation-508.pdf)
 
