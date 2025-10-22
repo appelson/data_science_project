@@ -1,0 +1,125 @@
+---
+title: "Project Part 1"
+output: html_notebook
+---
+
+# 1. Stakeholder presentation preparation
+
+### (a) Identify a realistic stakeholder for your dataset and analysis. Who would care about the relationships you’re exploring? Briefly describe this stakeholder (e.g., their role, organization type, and why they would commission this analysis).
+
+The dataset we will use is the *Public Libraries Survey (PLS) 2023* data, which includes information on 9,252 libraries across the United States - specifically the file “PLS_FY23_AE_pud23i.csv.” Our primary stakeholder is the **Director of Capital Planning at the Institute of Museum and Library Services (IMLS)** or a similar federal agency overseeing public library funding. This director manages a multi-million-dollar annual budget dedicated to constructing new library branches and renovating existing facilities. Their key challenge is to make data-driven investment decisions that maximize community impact and public engagement. They would commission this analysis to develop a predictive model that forecasts a library’s potential success-measured by visits per capita-before committing significant public funds. Such a tool would help ensure that limited resources are allocated to projects most likely to deliver strong community returns and long-term sustainability. This is especially important currently, when funding for public institutions, including libraries, is regularly challenged.
+
+### (b) What specific questions or decisions would your predictive models help this stakeholder answer or make? Consider both immediate practical applications and longer-term strategic implications.
+
+Our predictive models would help the Director of Capital Planning assess which proposed or existing library branches are most likely to achieve high levels of community engagement, measured by annual visits per capita. In the short term, the model could inform funding and loan decisions, allowing the director to prioritize projects that demonstrate strong predicted performance given factors such as population served, staffing, programming, and facility characteristics. The model could also flag underperforming libraries that may benefit from targeted support or renovation. In the longer term, the analysis would support strategic planning and policy development by identifying the structural factors most strongly associated with library success. This insight could guide nationwide investment strategies, influence funding formulas, and inform best practices for designing libraries that maximize community use. The model would enable the stakeholder to make both tactical funding decisions and broader evidence-based policy choices that improve the effectiveness of public library investments.
+
+# 2. Choosing outcomes
+
+### Which column do you plan to use as your outcome variable? Is it continuous or binary? Provide a brief explanation of your choice, including how this variable relates to your stakeholder’s interests.
+
+The column we plan to use as the outcome variable is a binary version of annual visitors per library district population, using a fixed threshold of 3. We selected this threshold a priori as a reasonable benchmark for active library use, reflecting roughly one library visit per person every four months. Libraries above this threshold are coded 1 (“high engagement”), and those below are coded 0 (“low engagement”).
+
+# 3. Dataset selection
+
+### (a) Confirm that your dataset meets the technical criteria (i)-(v) above. Include a link/citation/acknowledgment to its source/creator, and acknowledge your permission to use the data.
+
+Our dataset, after cleaning, has 6988 rows and 26 columns, including 10 categorical predictors and 16 numerical predictors, with 3 of the 16 being counts. The data is real-world data sourced from the *Public Libraries Survey (PLS) 2023*. Each row represents a unique library, surveyed during 2023. While the cleaning process removed 2,264 rows this was a mix of reasons. The first, and largest, was removing imputed data from the survey's to only keep libraries with completely sampled data. The second was removing visits of 0, as this reflected the library being closed in 2023.
+
+### (b) Briefly describe your chosen dataset, and why the particular choice of data sample, and the features available, make it appropriate for addressing your stakeholder’s decision-making needs.
+
+Our chosen covariates include a mix of administrative, geographic, and resource-based variables that a library administrator or policymaker could realistically access. Administrative and organizational identifiers such as `geocode`, `interlibrary_relation_code`, `legal_basis_code`, `admin_structure_code`, `fscs_definition_code`, `overdue_policy`, and `beac_code` capture how libraries are structured and governed—for example, whether a library is part of a system, operates under municipal or county authority, or enforces an overdue fines policy. These distinctions are important because governance models and administrative relationships can influence accessibility for patrons. Geographic context variables including `geo_type`, `locale_code`, and `metro` describe whether the library serves an urban, suburban, or rural area and whether it is located within a metropolitan region—factors that often shape library visitation patterns due to population density, transportation access, and community needs.
+
+We also include measures of library collections such as `print_volumes`, `ebook_volumes`, `audio_physical`, `audio_digital`, `video_physical`, `video_digital`, `total_e_collection`, `tot_physical`, and `other_physical`, which together capture both the size and format diversity of a library’s holdings. These variables provide insight into the scope of library resources and how they align with user preferences for print versus digital materials. Staffing and operational capacity are represented through `mls_librarians_fte`, `total_staff_fte`, and `other_paid_fte`, which reflect professional expertise and service availability.
+
+Finally, infrastructure measures such as `num_central_lib`, `num_lib_branches`, and `num_bookmobiles` describe the library system’s physical reach and accessibility within its service area. Collectively, these covariates represent the institutional, geographic, and resource factors that are likely to shape whether a library district achieves a high level of visitation per capita, as captured by our binary outcome variable `visits_per_capita_binary`.
+
+# 4. Holdout set
+
+```{r}
+set.seed(1)
+
+sample_index <- sample(seq_len(nrow(df_clean)), size = 0.8 * nrow(df_clean))
+
+df_clean_train <- df_clean[sample_index, ]
+df_clean_test  <- df_clean[-sample_index, ]
+
+```
+
+# 5. Holdout set
+
+### (a) Describe the process that led to the data being collected. Describe any issues with the data collection process (e.g., accuracy, completeness, sampling strategy, etc.) that could impact your subsequent data analysis.
+
+### (b) Which covariates are most strongly correlated with your outcome variable? Which ones are most weakly correlated with your outcome variable? Describe any correlations that are surprising or unexpected to you. (You may find it useful to visualize some of these pairwise relationships as scatterplots.)
+
+```{r, fig.width=14, fig.height=10}
+library(ggplot2)
+library(tidyverse)
+
+# Log-transform numeric predictors
+df_log <- df_clean %>%
+  mutate(across(where(is.numeric) & !matches("visits_per_capita_binary"),
+                ~ log(. + 1)))
+
+# Convert to long format for easy faceting
+df_long <- df_log %>%
+  pivot_longer(
+    cols = where(is.numeric) & !matches("visits_per_capita_binary"),
+    names_to = "variable",
+    values_to = "value"
+  )
+
+# Faceted density plots
+ggplot(df_long, aes(x = value, fill = factor(visits_per_capita_binary))) +
+  geom_density(alpha = 0.4) +
+  facet_wrap(~ variable, scales = "free", ncol = 3) +
+  scale_fill_manual(
+    values = c("steelblue", "orange"),
+    name = "High Visits",
+    labels = c("0 = Low", "1 = High")
+  ) +
+  labs(
+    title = "Distribution of Numeric Predictors by Visit Category",
+    x = "Log-transformed Value",
+    y = "Density"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    legend.position = "bottom",
+    strip.text = element_text(face = "bold")
+  )
+
+# Select categorical (non-numeric) variables
+df_cat <- df_clean %>%
+  select(where(~ !is.numeric(.))) %>%
+  mutate(visits_per_capita_binary = df_clean$visits_per_capita_binary)
+
+# Convert to long format
+df_cat_long <- df_cat %>%
+  pivot_longer(
+    cols = -visits_per_capita_binary,
+    names_to = "variable",
+    values_to = "category"
+  )
+
+# Faceted bar plots
+ggplot(df_cat_long, aes(x = category, fill = factor(visits_per_capita_binary))) +
+  geom_bar(position = "fill",alpha = 0.7) +  # "fill" shows proportions (0–1)
+  facet_wrap(~ variable, scales = "free_x", ncol = 3) +
+  scale_fill_manual(
+    values = c("steelblue", "orange"),
+    name = "High Visits",
+    labels = c("0 = Low", "1 = High")
+  ) +
+  labs(
+    title = "Proportion of Visit Categories Across Categorical Predictors",
+    x = "Category",
+    y = "Proportion"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    legend.position = "bottom",
+    strip.text = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+```
