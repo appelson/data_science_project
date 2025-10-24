@@ -1,0 +1,63 @@
+---
+output: pdf_document
+---
+
+# MS&E 226: Fundamentals of Data Science
+# Project Part 2: Inference and Causality
+
+#### Overview
+
+This handout gives details on the second part of the project.
+
+- This part of the project is due on **December 3, 2025 at 11:59 PT** (submission on Gradescope).
+- Each part below ends with a checkbox. This is what you should submit to receive credit for that part.
+- Each part of the project noted below will be graded using the following rubric:
+  - You will receive zero points if you do not attempt it.
+  - If you attempt it, but there are either substantial methodological errors or major conceptual misunderstandings of the material, you will receive 2 points.
+  - If you attempt it and there are no substantial methodological errors or major conceptual misunderstandings in what you submit, you will receive 3 points.
+
+  We expect students who make a reasonable effort, even if not perfect, will receive 3 points. Receiving 2 points is intended to be a sign of significant comprehension issues.
+- You may choose to use more text for some responses, and less text for others. Your entire report should be no longer than **4 pages, single spaced, 11 point Times or equivalent font, no less than single spaced, with no smaller than 1 inch margins**. You may include up to **one additional page for figures only**. If you submit material beyond the requirements, the TAs will only grade the first 4 pages (and one page of figures). **Code should be uploaded separately as a zip file (see below).**  
+
+#### 1. **Prediction on the holdout set**
+
+- [ ] Take the best model you built in Part 1 of the project, and apply this model to the test set you held out.  Report the test error.  Comment on any differences you saw between (a) and your results in Part 1 of the project.
+
+#### 2. **Inference**
+
+In this part of the project, you will apply the methods we learned in the class for inference. You should pick EITHER a linear regression model (if your outcome variable is continuous) OR a logistic regression model (if your outcome variable is binary).
+
+- [ ] (a) For your chosen model, report which coefficients are statistically significant in the regression output, and describe (using words not math) what statistical significance means for these coefficients. You must note what significance threshold you are using. (If you have many significant coefficients, focus your discussion in particular on the few coefficients you consider most practically meaningful.)
+
+- [ ] (b) Now fit your chosen model on the held out test data, and look at whether the same coefficients are significant. Did anything change in doing so? If so, explain any differences that you found, and reflect on why they might be there. (If you have many coefficients, focus your discussion in particular on the few differences you consider most practically meaningful.)
+
+- [ ] (c) Use the bootstrap to estimate confidence intervals for each of your regression coefficients. Do the results differ from confidence intervals computed from the standard regression output? Which confidence intervals (bootstrap or standard regression output) would you report to a stakeholder who was depending on your data analysis, and why?
+
+- [ ] (d) Discuss multiple hypothesis testing in your analysis. In particular, use either the Bonferroni correction or Benjamini-Hochberg procedure (or both!), and comment on any resulting changes to statistical significance of coefficients. If you were presenting your analysis to a stakeholder, would you apply a multiple testing correction or not? Justify your answer.
+
+- [ ] (e) Explain why your model-building and inference process suffers from post-selection inference. (If you don't think it does, defend why in this part.)
+
+#### 3. **Stakeholder Guidance**
+
+- [ ] (a) Revisit the stakeholder scenario you identified in Part 1. How do your statistical inference results inform the specific decisions your stakeholder needs to make? Discuss both the statistical and practical significance of your key findings in terms your stakeholder would understand.
+
+- [ ] (b) Identify one statistically significant relationship from your analysis where your stakeholder would particularly care about whether the relationship is causal rather than merely correlational. Explain why causality matters for this stakeholder's decision-making -- what would they do differently if they knew this relationship was causal versus if it were just a correlation?
+
+- [ ] (c) For the relationship you identified in part (b), evaluate whether the evidence supports a causal interpretation. Consider and discuss:
+  - **Confounding variables**: What other variables might be driving both your predictor and outcome variables, creating a spurious correlation?
+  - **Selection effects**: Could there be systematic differences in how observations entered your dataset that create misleading associations?
+  - **Measurement issues**: Are there problems with how variables were measured that could create or mask relationships?
+
+Based on this analysis, do you believe the relationship can reasonably be interpreted as causal? Defend your conclusion.
+
+- [ ] (d) What additional data would most strengthen your ability to make credible causal claims about the relationship in part (b)? Be specific about what would need to be collected (e.g., different covariates or specific experimental data) or otherwise done differently, and assess the feasibility of obtaining such evidence.
+
+#### 4. **AI use**
+
+- [ ] (a) List any AI tools you used to complete the project (be as specific as possible).
+
+- [ ] (b) The project parts asked you to grapple with a wide range of the tasks that practicing data scientists grapple with. Having done the project, describe 1-3 tasks that you found AI particularly helpful for in this process, and 1-3 tasks that you found AI not so helpful for. We will synthesize your responses and share interesting findings with the class. (You will receive full credit for this part as long as you turn it in.)
+
+#### 5. **Code upload**
+
+- [ ] Using Stanford's Google Drive or a similar cloud service, upload your code as a zip file, make sure it is viewable/downloadable by the teaching staff, and paste a URL in your project report that links to this zip file.
