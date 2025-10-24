@@ -36,6 +36,9 @@ Finally, infrastructure measures such as `num_central_lib`, `num_lib_branches`, 
 # 4. Holdout set
 
 ```{r}
+library(tidyverse)
+df_clean <- read_csv("cleaned_data/cleaned_data.csv")
+
 set.seed(1)
 
 sample_index <- sample(seq_len(nrow(df_clean)), size = 0.8 * nrow(df_clean))
