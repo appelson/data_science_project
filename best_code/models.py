@@ -23,14 +23,14 @@ np.random.seed(1)
 #------------------------------- Load and Prepare Data -------------------------------
 
 # Loading data
-df_clean = pd.read_csv("cleaned_data/cleaned_data.csv")
+df = pd.read_csv("cleaned_data/train_data.csv")
 
 # Transforming predictors into LOG versions
-df_clean['log_visits'] = np.log(df_clean['visits'])
-df_clean['log_population_lsa'] = np.log(df_clean['population_lsa'] + 1)
-df_clean['log_county_population'] = np.log(df_clean['county_population'] + 1)
-df_clean['log_print_volumes'] = np.log(df_clean['print_volumes'] + 1)
-df_clean['log_ebook_volumes'] = np.log(df_clean['ebook_volumes'] + 1)
+df['log_visits'] = np.log(df['visits'])
+df['log_population_lsa'] = np.log(df['population_lsa'] + 1)
+df['log_county_population'] = np.log(df['county_population'] + 1)
+df['log_print_volumes'] = np.log(df['print_volumes'] + 1)
+df['log_ebook_volumes'] = np.log(df['ebook_volumes'] + 1)
 
 # Defining numeric variables
 numeric_features = [
@@ -49,10 +49,10 @@ categorical_features = [
 all_features = numeric_features + categorical_features
 
 # Defining covariates
-X = df_clean[all_features]
+X_train = df[all_features]
 
 # Defining outcome variable
-y = df_clean['log_visits']
+y_train = df['log_visits']
 
 #------------------------------- Preprocessing Pipeline ------------------------
 
@@ -64,16 +64,6 @@ preprocessor = ColumnTransformer(
          categorical_features)
     ]
 )
-
-#------------------------------- Train/Test Split ------------------------------
-
-# Splitting data
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=1
-)
-
-print(f"Training set size: {len(X_train)}")
-print(f"Test set size: {len(X_test)}\n")
 
 #------------------------------- Cross-Validation Setup ------------------------
 
@@ -415,62 +405,3 @@ best_cv_r2 = results_df.iloc[0]['CV_R2']
 print(f"\nBest Model: {best_model_name}")
 print(f"CV RMSE: {best_cv_rmse:.4f}")
 print(f"CV R²: {best_cv_r2:.4f}")
-#-------------------- Residual Plots for Each Model ----------------------------
-
-fig, axes = plt.subplots(2, 4, figsize=(20, 10))
-axes = axes.flatten()
-
-model_order = [
-    ('mean_baseline', 'Mean Baseline'),
-    ('univariate', 'Univariate (Pop)'),
-    ('ols', 'OLS'),
-    ('lasso', 'LASSO'),
-    ('ridge', 'Ridge'),
-    ('tree', 'Decision Tree'),
-    ('random_forest', 'Random Forest'),
-    ('gbm', 'Gradient Boosting'),
-    # ('neural_network', 'Neural Network'),  # optional
-]
-
-feature_subsets = {
-    'mean_baseline': None,
-    'univariate': ['log_population_lsa'],
-    'ols': all_features,
-    'lasso': all_features,
-    'ridge': all_features,
-    'tree': all_features,
-    'random_forest': all_features,
-    'gbm': all_features,
-    'neural_network': all_features,
-}
-
-for i, (key, name) in enumerate(model_order):
-    ax = axes[i]
-
-    # Select features for this model
-    if feature_subsets[key] is not None:
-        X_test_subset = X_test[feature_subsets[key]]
-    else:
-        X_test_subset = X_test
-
-    # Predictions
-    if key == 'mean_baseline':
-        y_pred = np.repeat(trained_models[key], len(y_test))
-    else:
-        y_pred = trained_models[key].predict(X_test_subset)
-
-    # Compute residuals
-    residuals = y_test - y_pred
-
-    # Scatter residuals vs predicted
-    ax.scatter(y_pred, residuals, alpha=0.3, edgecolor='k')
-    ax.axhline(0, color='r', linestyle='--', lw=2)
-
-    # Axis limits
-    ax.set_xlabel("Predicted log(visits)")
-    ax.set_ylabel("Residuals")
-    ax.set_title(name)
-    ax.set_xlim([y_pred.min(), y_pred.max()])
-
-plt.tight_layout()
-plt.show()
