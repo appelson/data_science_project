@@ -1,12 +1,16 @@
+# Loading Libraries
 library(readr)
 library(dplyr)
 library(janitor)
 library(tidyverse)
 
-# ------------------ Cleaning Data ---------------------------
+# Setting seed
+set.seed(1)
 
 # Load data
 df <- read_csv("raw_data/PLS_FY23_AE_pud23i.csv")
+
+# ------------------ Cleaning Data ---------------------------
 
 # Clean data
 df_clean <- df %>%
@@ -113,5 +117,18 @@ df_clean <- df %>%
   drop_na() %>%
   select(-impute_status)
 
+# ------------------------ Splitting the Data ---------------------------------
 
+# Defining training indices
+train_indices <- sample(seq_len(nrow(df_clean)), size = 0.8 * nrow(df_clean))
+
+# Defining training + test data
+train_data <- df_clean[train_indices, ]
+test_data  <- df_clean[-train_indices, ]
+
+# Write them out
+write_csv(train_data, "cleaned_data/train_data.csv")
+write_csv(test_data, "cleaned_data/test_data.csv")
+
+# Exporting full data
 write_csv(df_clean, "cleaned_data/cleaned_data.csv")
