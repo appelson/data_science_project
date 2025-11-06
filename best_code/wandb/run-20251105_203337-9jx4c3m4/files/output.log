@@ -1,0 +1,29 @@
+/opt/anaconda3/envs/mse226_env/lib/python3.9/site-packages/torch/nn/modules/loss.py:616: UserWarning: Using a target size (torch.Size([4467, 1])) that is different to the input size (torch.Size([4468, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.mse_loss(input, target, reduction=self.reduction)
+      population_lsa  county_population  print_volumes  ebook_volumes  \
+0                704               7389           6007         101997
+1              48409            1523170         111713         536427
+2               3373              13368          21607        1244434
+3              34636              69637          93185        1263692
+4              55889             514982         192323         157417
+...              ...                ...            ...            ...
+5579            2218             297150           6982          17027
+5580            1213             130668          13458           1251
+5581          406718             533365         321747          64815
+5582           13416              73227          65381         506960
+5583           34541              34079          72204          58856
+
+      num_lib_branches  num_bookmobiles
+0                    0                0
+1                    1                0
+2                    0                0
+3                    1                0
+4                    0                0
+...                ...              ...
+5579                 0                0
+5580                 0                0
+5581                 7                1
+5582                 0                0
+5583                 1                0
+
+[5584 rows x 6 columns]

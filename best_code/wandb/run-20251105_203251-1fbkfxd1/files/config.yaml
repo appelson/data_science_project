@@ -1,0 +1,64 @@
+_wandb:
+    value:
+        cli_version: 0.22.3
+        e:
+            iiwqwg38c9syhn2hhgbfdsbrs1kq3e0d:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 10
+                    memoryGb: 16
+                    name: Apple M3
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "11811160064"
+                codePath: /Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/best_code/nn_model.ipynb
+                codePathLocal: nn_model.ipynb
+                cpu_count: 8
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "372778016768"
+                email: leachen01@gmail.com
+                executable: /opt/anaconda3/envs/mse226_env/bin/python
+                git:
+                    commit: b3444f4e4c0f8388a00a2c2a771f1f53c658c09c
+                    remote: https://github.com/appelson/data_science_project
+                host: Leas-MacBook-Air.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.6-arm64-arm-64bit
+                program: /Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/best_code/nn_model.ipynb
+                python: CPython 3.9.23
+                root: /Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/best_code
+                startedAt: "2025-11-06T04:32:51.487439Z"
+                writerId: iiwqwg38c9syhn2hhgbfdsbrs1kq3e0d
+        m: []
+        python_version: 3.9.23
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+            "2":
+                - 1
+                - 5
+                - 53
+            "3":
+                - 2
+                - 3
+                - 13
+                - 16
+            "4": 3.9.23
+            "5": 0.22.3
+            "8":
+                - 1
+                - 2
+            "12": 0.22.3
+            "13": darwin-arm64
+embedding_dim:
+    value: 8
+epochs:
+    value: 5000
+lr:
+    value: 0.001
