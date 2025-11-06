@@ -1,0 +1,6 @@
+Index(['interlibrary_relation_code', 'fscs_definition_code', 'overdue_policy',
+       'beac_code', 'locale_code', 'population_lsa', 'county_population',
+       'print_volumes', 'ebook_volumes', 'num_lib_branches',
+       'num_bookmobiles'],
+      dtype='object')
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobiles']

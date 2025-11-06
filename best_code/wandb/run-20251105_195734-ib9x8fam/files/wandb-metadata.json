@@ -1,0 +1,37 @@
+{
+  "os": "macOS-15.6-arm64-arm-64bit",
+  "python": "CPython 3.9.23",
+  "startedAt": "2025-11-06T03:57:34.880345Z",
+  "program": "/Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/best_code/nn_model.ipynb",
+  "codePath": "/Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/best_code/nn_model.ipynb",
+  "codePathLocal": "nn_model.ipynb",
+  "git": {
+    "remote": "https://github.com/appelson/data_science_project",
+    "commit": "79bd0396abcc8c1e0bc443e56d73315a37bcb00d"
+  },
+  "email": "leachen01@gmail.com",
+  "root": "/Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/best_code",
+  "host": "Leas-MacBook-Air.local",
+  "executable": "/opt/anaconda3/envs/mse226_env/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "372707733504"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M3",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "11811160064",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "9vsypv3wyx15ff7vs7nwciefafbk2osb"
+}
