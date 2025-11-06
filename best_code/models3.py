@@ -260,36 +260,6 @@ rf_params = {
 }
 rf_result = evaluate_model_for_logs("Random Forest", rf_pipe, rf_params)
 
-# GBM
-gb_pipe = Pipeline([
-    ('log_transformer', ConditionalLogTransformer()),
-    ('preprocessor', preprocessor),
-    ('regressor', GradientBoostingRegressor(random_state=1))
-])
-gb_params = {
-    'regressor__n_estimators': randint(100, 500),
-    'regressor__max_depth': randint(3, 10),
-    'regressor__learning_rate': loguniform(1e-3, 0.3),
-    'regressor__subsample': uniform(0.6, 0.4),
-    'regressor__min_samples_split': randint(2, 20),
-    'regressor__min_samples_leaf': randint(1, 10)
-}
-gb_result = evaluate_model_for_logs("Gradient Boosting", gb_pipe, gb_params)
-
-# NN
-mlp_pipe = Pipeline([
-    ('log_transformer', ConditionalLogTransformer()),
-    ('preprocessor', preprocessor),
-    ('scaler', StandardScaler()),
-    ('regressor', MLPRegressor(max_iter=1000, random_state=1, early_stopping=True))
-])
-mlp_params = {
-    'regressor__hidden_layer_sizes': [(100,), (100, 50), (150, 100, 50)],
-    'regressor__alpha': loguniform(1e-5, 1e-1),
-    'regressor__learning_rate_init': loguniform(1e-4, 1e-2)
-}
-mlp_result = evaluate_model_for_logs("Neural Network", mlp_pipe, mlp_params)
-
 # ------------------------ Getting Model Results -------------------------------
 
 # All Results
