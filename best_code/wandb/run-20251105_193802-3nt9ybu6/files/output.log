@@ -1,0 +1,457 @@
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobile']
+Index(['interlibrary_relation_code', 'fscs_definition_code', 'overdue_policy',
+       'beac_code', 'locale_code', 'population_lsa', 'county_population',
+       'print_volumes', 'ebook_volumes', 'num_lib_branches',
+       'num_bookmobiles'],
+      dtype='object')
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobile']
+Index(['interlibrary_relation_code', 'fscs_definition_code', 'overdue_policy',
+       'beac_code', 'locale_code', 'population_lsa', 'county_population',
+       'print_volumes', 'ebook_volumes', 'num_lib_branches',
+       'num_bookmobiles'],
+      dtype='object')
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobile']
+Index(['interlibrary_relation_code', 'fscs_definition_code', 'overdue_policy',
+       'beac_code', 'locale_code', 'population_lsa', 'county_population',
+       'print_volumes', 'ebook_volumes', 'num_lib_branches',
+       'num_bookmobiles'],
+      dtype='object')
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobile']
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code  locale_code  population_lsa  county_population  \
+0             4            1             704               7389
+1             2            2           48409            1523170
+2             4            3            3373              13368
+3             1            3           34636              69637
+4             1            2           55889             514982
+...         ...          ...             ...                ...
+5579          2            1            2218             297150
+5580          2            3            1213             130668
+5581          5            2          406718             533365
+5582          1            2           13416              73227
+5583          6            3           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code  locale_code  population_lsa  county_population  \
+0             4            1             704               7389
+1             2            2           48409            1523170
+2             4            3            3373              13368
+3             1            3           34636              69637
+4             1            2           55889             514982
+...         ...          ...             ...                ...
+5579          2            1            2218             297150
+5580          2            3            1213             130668
+5581          5            2          406718             533365
+5582          1            2           13416              73227
+5583          6            3           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code  locale_code  population_lsa  county_population  \
+0             4            1             704               7389
+1             2            2           48409            1523170
+2             4            3            3373              13368
+3             1            3           34636              69637
+4             1            2           55889             514982
+...         ...          ...             ...                ...
+5579          2            1            2218             297150
+5580          2            3            1213             130668
+5581          5            2          406718             533365
+5582          1            2           13416              73227
+5583          6            3           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code  locale_code  population_lsa  county_population  \
+0             4            1             704               7389
+1             2            2           48409            1523170
+2             4            3            3373              13368
+3             1            3           34636              69637
+4             1            2           55889             514982
+...         ...          ...             ...                ...
+5579          2            1            2218             297150
+5580          2            3            1213             130668
+5581          5            2          406718             533365
+5582          1            2           13416              73227
+5583          6            3           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code  locale_code  population_lsa  county_population  \
+0             4            1             704               7389
+1             2            2           48409            1523170
+2             4            3            3373              13368
+3             1            3           34636              69637
+4             1            2           55889             514982
+...         ...          ...             ...                ...
+5579          2            1            2218             297150
+5580          2            3            1213             130668
+5581          5            2          406718             533365
+5582          1            2           13416              73227
+5583          6            3           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+Index(['interlibrary_relation_code', 'fscs_definition_code', 'overdue_policy',
+       'beac_code', 'locale_code', 'population_lsa', 'county_population',
+       'print_volumes', 'ebook_volumes', 'num_lib_branches',
+       'num_bookmobiles'],
+      dtype='object')
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobile']
+      interlibrary_relation_code                  fscs_definition_code  \
+0                              0  Meets FSCS Public Library Definition
+1                              0  Meets FSCS Public Library Definition
+2                              0  Meets FSCS Public Library Definition
+3                              0  Meets FSCS Public Library Definition
+4                              0  Meets FSCS Public Library Definition
+...                          ...                                   ...
+5579                           0  Meets FSCS Public Library Definition
+5580                           0  Meets FSCS Public Library Definition
+5581                           0  Meets FSCS Public Library Definition
+5582                           0  Meets FSCS Public Library Definition
+5583                           1  Meets FSCS Public Library Definition
+
+                    overdue_policy        beac_code locale_code  \
+0     Does not Have Overdue Policy           Plains       Rural
+1     Does not Have Overdue Policy         Mid East      Suburb
+2     Does not Have Overdue Policy           Plains        Town
+3     Does not Have Overdue Policy      Great Lakes        Town
+4     Does not Have Overdue Policy      Great Lakes      Suburb
+...                            ...              ...         ...
+5579  Does not Have Overdue Policy         Mid East       Rural
+5580            Has Overdue Policy         Mid East        Town
+5581  Does not Have Overdue Policy  Rocky Mountains      Suburb
+5582  Does not Have Overdue Policy      Great Lakes      Suburb
+5583  Does not Have Overdue Policy        Southeast        Town
+
+      population_lsa  county_population  print_volumes  ebook_volumes  \
+0                704               7389           6007         101997
+1              48409            1523170         111713         536427
+2               3373              13368          21607        1244434
+3              34636              69637          93185        1263692
+4              55889             514982         192323         157417
+...              ...                ...            ...            ...
+5579            2218             297150           6982          17027
+5580            1213             130668          13458           1251
+5581          406718             533365         321747          64815
+5582           13416              73227          65381         506960
+5583           34541              34079          72204          58856
+
+      num_lib_branches  num_bookmobiles
+0                    0                0
+1                    1                0
+2                    0                0
+3                    1                0
+4                    0                0
+...                ...              ...
+5579                 0                0
+5580                 0                0
+5581                 7                1
+5582                 0                0
+5583                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  \
+0                              0                     1
+1                              0                     1
+2                              0                     1
+3                              0                     1
+4                              0                     1
+...                          ...                   ...
+5579                           0                     1
+5580                           0                     1
+5581                           0                     1
+5582                           0                     1
+5583                           1                     1
+
+                    overdue_policy        beac_code locale_code  \
+0     Does not Have Overdue Policy           Plains       Rural
+1     Does not Have Overdue Policy         Mid East      Suburb
+2     Does not Have Overdue Policy           Plains        Town
+3     Does not Have Overdue Policy      Great Lakes        Town
+4     Does not Have Overdue Policy      Great Lakes      Suburb
+...                            ...              ...         ...
+5579  Does not Have Overdue Policy         Mid East       Rural
+5580            Has Overdue Policy         Mid East        Town
+5581  Does not Have Overdue Policy  Rocky Mountains      Suburb
+5582  Does not Have Overdue Policy      Great Lakes      Suburb
+5583  Does not Have Overdue Policy        Southeast        Town
+
+      population_lsa  county_population  print_volumes  ebook_volumes  \
+0                704               7389           6007         101997
+1              48409            1523170         111713         536427
+2               3373              13368          21607        1244434
+3              34636              69637          93185        1263692
+4              55889             514982         192323         157417
+...              ...                ...            ...            ...
+5579            2218             297150           6982          17027
+5580            1213             130668          13458           1251
+5581          406718             533365         321747          64815
+5582           13416              73227          65381         506960
+5583           34541              34079          72204          58856
+
+      num_lib_branches  num_bookmobiles
+0                    0                0
+1                    1                0
+2                    0                0
+3                    1                0
+4                    0                0
+...                ...              ...
+5579                 0                0
+5580                 0                0
+5581                 7                1
+5582                 0                0
+5583                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+            beac_code locale_code  population_lsa  county_population  \
+0              Plains       Rural             704               7389
+1            Mid East      Suburb           48409            1523170
+2              Plains        Town            3373              13368
+3         Great Lakes        Town           34636              69637
+4         Great Lakes      Suburb           55889             514982
+...               ...         ...             ...                ...
+5579         Mid East       Rural            2218             297150
+5580         Mid East        Town            1213             130668
+5581  Rocky Mountains      Suburb          406718             533365
+5582      Great Lakes      Suburb           13416              73227
+5583        Southeast        Town           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code locale_code  population_lsa  county_population  print_volumes  \
+0             4       Rural             704               7389           6007
+1             2      Suburb           48409            1523170         111713
+2             4        Town            3373              13368          21607
+3             1        Town           34636              69637          93185
+4             1      Suburb           55889             514982         192323
+...         ...         ...             ...                ...            ...
+5579          2       Rural            2218             297150           6982
+5580          2        Town            1213             130668          13458
+5581          5      Suburb          406718             533365         321747
+5582          1      Suburb           13416              73227          65381
+5583          6        Town           34541              34079          72204
+
+      ebook_volumes  num_lib_branches  num_bookmobiles
+0            101997                 0                0
+1            536427                 1                0
+2           1244434                 0                0
+3           1263692                 1                0
+4            157417                 0                0
+...             ...               ...              ...
+5579          17027                 0                0
+5580           1251                 0                0
+5581          64815                 7                1
+5582         506960                 0                0
+5583          58856                 1                0
+
+[5584 rows x 11 columns]
+      interlibrary_relation_code  fscs_definition_code  overdue_policy  \
+0                              0                     1               0
+1                              0                     1               0
+2                              0                     1               0
+3                              0                     1               0
+4                              0                     1               0
+...                          ...                   ...             ...
+5579                           0                     1               0
+5580                           0                     1               1
+5581                           0                     1               0
+5582                           0                     1               0
+5583                           1                     1               0
+
+      beac_code  locale_code  population_lsa  county_population  \
+0             4            1             704               7389
+1             2            2           48409            1523170
+2             4            3            3373              13368
+3             1            3           34636              69637
+4             1            2           55889             514982
+...         ...          ...             ...                ...
+5579          2            1            2218             297150
+5580          2            3            1213             130668
+5581          5            2          406718             533365
+5582          1            2           13416              73227
+5583          6            3           34541              34079
+
+      print_volumes  ebook_volumes  num_lib_branches  num_bookmobiles
+0              6007         101997                 0                0
+1            111713         536427                 1                0
+2             21607        1244434                 0                0
+3             93185        1263692                 1                0
+4            192323         157417                 0                0
+...             ...            ...               ...              ...
+5579           6982          17027                 0                0
+5580          13458           1251                 0                0
+5581         321747          64815                 7                1
+5582          65381         506960                 0                0
+5583          72204          58856                 1                0
+
+[5584 rows x 11 columns]
+Index(['interlibrary_relation_code', 'fscs_definition_code', 'overdue_policy',
+       'beac_code', 'locale_code', 'population_lsa', 'county_population',
+       'print_volumes', 'ebook_volumes', 'num_lib_branches',
+       'num_bookmobiles'],
+      dtype='object')
+['population_lsa', 'county_population', 'print_volumes', 'ebook_volumes', 'num_lib_branches', 'num_bookmobile']
