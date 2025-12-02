@@ -8,8 +8,8 @@ library(sandwich)
 
 set.seed(1)
 
-df_train_file <- read_csv("~/Desktop/Classes/Data Science/project 1/cleaned_data/cleaned_data.csv")
-df_test_file  <- read_csv("~/Desktop/Classes/Data Science/project 1/cleaned_data/test_data.csv")
+df_train_file <- read_csv("/Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/cleaned_data/cleaned_data.csv")
+df_test_file  <- read_csv("/Users/leachen/Docs/uni/masters/stanford_mse/fall25/mse226/data_science_project/cleaned_data/test_data.csv")
 
 data_full <- bind_rows(df_train_file, df_test_file)
 
@@ -32,6 +32,7 @@ df_test  <- data_full[-index, ]
 
 cat("Training data dimensions:", dim(df_train), "\n")
 cat("Test data dimensions:", dim(df_test), "\n")
+
 
 # -----------------------------3(a) Fitting Models ------------------------------
 formula_obj <- as.formula(
@@ -238,6 +239,46 @@ comparison %>%
     sig_bootstrap = (perc_low > 0 | perc_high < 0),
     changed_significance = sig_standard != sig_bootstrap
   )
+
+# -----------------------3(d) Bonferroni correction ------------------
+
+p_values_to_adjust <- tidy_train %>%
+  filter(term != "(Intercept)") %>%
+  pull(pr_t)
+p_adjusted_bonferroni <- p.adjust(p_values_to_adjust, method = "bonferroni")
+
+alpha <- 0.05 
+reject <- p_adjusted_bonferroni <= alpha
+
+adjusted_results <- tibble::tibble(
+  term = tidy_train %>% filter(term != "(Intercept)") %>% pull(term),
+  p_adj_bonferroni = p_adjusted_bonferroni,
+  significant_bonferroni = reject
+)
+
+tidy_train_final <- tidy_train %>%
+  # Select only the non-intercept terms to join
+  left_join(adjusted_results, by = "term") %>%
+  # Fill in NA values for the intercept (which wasn't adjusted)
+  mutate(
+    p_adj_bonferroni = replace_na(p_adj_bonferroni, pr_t[term == "(Intercept)"]),
+    significant_bonferroni = replace_na(significant_bonferroni, significant_train[term == "(Intercept)"])
+  )
+
+tidy_train_final %>%
+  select(term, estimate, pr_t, significant_train, p_adj_bonferroni, significant_bonferroni)
+
+p_adjusted_bh <- p.adjust(p_values_to_adjust, method = "BH")
+
+reject <- p_adjusted_bh <= alpha 
+which(reject) # Returns: 1  2  3  4  6  7 10 13 15 17 18
+
+
+
+tidy_train_final %>%
+  select(term, estimate, pr_t, significant_train, p_adj_bonferroni, significant_bonferroni) %>%
+  filter(significant_bonferroni)
+
 
 # -----------------------3(e) Bootstrap ------------------------------
 tidy_train_corrected <- tidy_train %>%
