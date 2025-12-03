@@ -71,6 +71,27 @@ ggplot(res_train, aes(.fitted, .resid)) +
   labs(title = "Residuals vs Fitted — TRAIN", x = "Fitted values", y = "Residuals") +
   theme_minimal()
 
+##### This is only for log transformed values tho! Here is a version with backtransformed residuals
+##### But there is a bias (see Jensen's equality)
+
+y_hat <- exp(res_train$.fitted)
+resid_orig <- df_train$visits - y_hat
+res_back <- data.frame(
+  y          = df_train$visits,
+  y_hat      = y_hat,
+  resid_orig = resid_orig
+  # y_hat_smear = y_hat_smear,
+  # resid_smear = resid_smear
+)
+ggplot(res_back, aes(y_hat, resid_orig)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_smooth(se = FALSE) +
+  labs(title = "Residuals vs Fitted — TRAIN", x = "Fitted values", y = "Residuals") +
+  theme_minimal()
+
+###################################
+
 ggplot(res_train, aes(.fitted, sqrt(abs(.std.resid)))) +
   geom_point(alpha = 0.5) +
   geom_smooth(se = FALSE) +
